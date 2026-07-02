@@ -1,0 +1,17 @@
+baseURL = "https://REPLACE-WITH-YOUR-DOMAIN-OR-GH-PAGES-URL/"
+languageCode = "en-us"
+title = "Silo"
+
+# Silo is a single-page site. We disable Hugo's taxonomy and RSS
+# machinery because a one-page legal/support site needs none of it.
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+
+[params]
+  appName = "Silo"
+  # Change this to your real support email before deploying.
+  supportEmail = "REPLACE-WITH-YOUR-EMAIL@example.com"
+  lastUpdated = "2 July 2026"
+
+[markup.goldmark.renderer]
+  # Allow raw HTML in markdown content if ever needed.
+  unsafe = true
