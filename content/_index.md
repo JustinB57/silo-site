@@ -48,7 +48,7 @@ title = "Silo — Privacy & Support"
 <p class="meta">Help and answers for the Silo private photo vault.</p>
 
 <div class="callout">
-<p><strong>Need help?</strong> Email <a href="mailto:REPLACE-WITH-YOUR-EMAIL@example.com">REPLACE-WITH-YOUR-EMAIL@example.com</a> and we'll get back to you. Please include your device model and iOS version so we can help faster.</p>
+<p><strong>Need help?</strong> Email <a href="mailto:silo-workphotos@proton.me">silo-workphotos@proton.me</a> and we'll get back to you. Please include your device model and iOS version so we can help faster.</p>
 </div>
 
 <p class="faq-q">Where are my photos stored?</p>
@@ -77,5 +77,5 @@ title = "Silo — Privacy & Support"
 
 <section id="contact">
 <h2>Contact</h2>
-<p>For any questions about Silo, its privacy practices, or support, email <a href="mailto:REPLACE-WITH-YOUR-EMAIL@example.com">REPLACE-WITH-YOUR-EMAIL@example.com</a>.</p>
+<p>For any questions about Silo, its privacy practices, or support, email <a href="mailto:silo-workphotos@proton.me">silo-workphotos@proton.me</a>.</p>
 </section>

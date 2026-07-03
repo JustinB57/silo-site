@@ -9,7 +9,7 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 [params]
   appName = "Silo"
   # Change this to your real support email before deploying.
-  supportEmail = "REPLACE-WITH-YOUR-EMAIL@example.com"
+  supportEmail = "silo-workphotos@proton.me"
   lastUpdated = "2 July 2026"
 
 [markup.goldmark.renderer]
