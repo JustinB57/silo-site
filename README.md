@@ -6,7 +6,7 @@ Hugo's built-in templating and the official GitHub Pages deployment workflow.
 
 ## Before you deploy — 2 required edits
 
-1. **Your email.** Replace `REPLACE-WITH-YOUR-EMAIL@example.com` (appears 4 times
+1. **Your email.** Replace `silo-workphotos@proton.me` (appears 4 times
    in `content/_index.md`, plus once in `hugo.toml`) with a real support address
    you monitor. Apple requires a working support contact.
 
