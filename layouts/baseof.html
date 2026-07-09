@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ .Site.Title }} — Privacy &amp; Support</title>
-  <meta name="description" content="Privacy policy and support for Silo, a private on-device photo vault for iOS.">
+  {{ $appName := or .Params.appName .Site.Params.appName }}
+  <title>{{ $appName }} — {{ or .Params.pageTitle "Privacy & Support" }}</title>
+  <meta name="description" content="{{ or .Params.metaDescription "Privacy policy and support." }}">
   <style>
     :root {
       --ink: #1c1b2e;
@@ -15,7 +16,6 @@
       --indigo: #242150;
       --indigo-soft: #534ab7;
       --rule: #e2e0d6;
-      --danger: #b23a48;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -38,7 +38,7 @@
     .brand { display: flex; align-items: center; gap: 16px; }
     .brand svg { width: 52px; height: 52px; flex-shrink: 0; }
     .brand h1 { font-size: 30px; margin: 0; letter-spacing: -0.01em; }
-    .tagline { color: #c9c6e8; font-size: 17px; margin: 0; max-width: 52ch; }
+    .tagline { color: #c9c6e8; font-size: 17px; margin: 0; max-width: 56ch; }
     nav.jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
     nav.jump a {
       color: #fff; text-decoration: none; font-size: 14px; font-weight: 500;
@@ -57,6 +57,7 @@
     section h3 { font-size: 18px; margin: 28px 0 8px; }
     p { margin: 0 0 16px; }
     ul { margin: 0 0 16px; padding-left: 22px; }
+    ol { margin: 0 0 16px; padding-left: 22px; }
     li { margin-bottom: 8px; }
     a { color: var(--indigo-soft); }
 
@@ -75,6 +76,12 @@
     .faq-q { font-weight: 600; margin: 22px 0 2px; }
     hr.divider { border: none; border-top: 1px solid var(--rule); margin: 40px 0 0; }
 
+    .disclaimer {
+      font-size: 13px; color: var(--ink-faint);
+      border-top: 1px solid var(--rule);
+      margin-top: 40px; padding-top: 20px;
+    }
+
     footer.foot {
       border-top: 1px solid var(--rule);
       color: var(--ink-faint); font-size: 13px;
@@ -89,27 +96,33 @@
     <div class="wrap">
       <div class="brand">
         {{ partial "logo.html" . }}
-        <h1>{{ .Site.Params.appName }}</h1>
+        <h1>{{ $appName }}</h1>
       </div>
-      <p class="tagline">A private, on-device photo vault. Your photos stay on your phone — no account, no cloud, nothing collected.</p>
+      <p class="tagline">{{ or .Params.tagline .Site.Params.tagline }}</p>
       <nav class="jump">
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#support">Support</a>
-        <a href="#contact">Contact</a>
+        {{ if .Params.navLinks }}
+          {{ range .Params.navLinks }}
+            <a href="{{ .url }}">{{ .name }}</a>
+          {{ end }}
+        {{ else }}
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#support">Support</a>
+          <a href="#contact">Contact</a>
+        {{ end }}
       </nav>
     </div>
   </header>
 
   <main>
     <div class="wrap">
-      {{ .Content }}
+      {{ block "main" . }}{{ .Content }}{{ end }}
     </div>
   </main>
 
   <footer class="foot">
     <div class="wrap">
-      <span>{{ .Site.Params.appName }} · Private on-device photo vault for iOS</span>
-      <span>Last updated {{ .Site.Params.lastUpdated }}</span>
+      <span>{{ $appName }} · {{ or .Params.footerNote .Site.Params.footerNote }}</span>
+      <span>Last updated {{ or .Params.lastUpdated .Site.Params.lastUpdated }}</span>
     </div>
   </footer>
 </body>
